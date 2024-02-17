@@ -33,7 +33,7 @@ app.get('/filteredimage', async ({ query: { image_url } }, res) => {
     let filteredpath = await filterImageFromURL(image_url);
     res.status(200).sendFile(filteredpath, () => deleteLocalFiles([filteredpath]));
   } catch (err) {
-    res.status(500).send('Opps! Something went wrong!');
+    res.status(422).send('Opps! Something went wrong!');
   }
 });
 //! END @TODO1
